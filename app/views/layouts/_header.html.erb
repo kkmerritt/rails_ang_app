@@ -1,0 +1,43 @@
+<div ng-controller="SessionController as sessionCtrl">
+
+  <header>
+      <div ng-show="sessionCtrl.current_user.name">
+      <% if flash[:message]%>
+      <div id="flashmessage">
+        <%= flash[:message]%>
+      </div>
+      <%end%>
+    </div>
+  </header>
+
+  <div class='navcontainer'>
+    <a ng-href="articles" class="linkbutton">view articles</a>
+    <a ng-href="articles/new" class="linkbutton">add articles</a>
+    <form type="hidden" ng-submit="sessionCtrl.deleteSession()">
+      <input type="submit" class="linkbutton" value="Log Out"></input></form>
+    </div>
+
+</div>
+
+<script>
+$(document).ready(function() {$("#flashmessage").delay(2500).fadeOut(500);});
+
+$(document).ready(function() {
+  var stickyNavTop = $('.navcontainer').offset().top;
+  var stickyNav = function(){
+    var scrollTop = $(window).scrollTop();
+
+    if (scrollTop > stickyNavTop) {
+      $('.navcontainer').addClass('sticky');}
+      else {
+        $('.navcontainer').removeClass('sticky');
+      }
+    };
+
+    stickyNav();
+
+    $(window).scroll(function() {
+      stickyNav();
+    });
+  });
+</script>

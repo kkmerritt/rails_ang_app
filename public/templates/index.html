@@ -1,0 +1,80 @@
+<main ng-controller="ArticlesController as articleCtrl">
+
+  <div id='spacer'></div>
+
+  <div class='container'>
+
+  <hr>
+  <br>
+
+  <p>{{ count }}</p>
+    <label> search:  <input type="text" ng-model="search" /></label>
+
+  <div class="articles" ng-repeat = "article in articleCtrl.articles | filter: search | orderBy: 'date' ">
+    <div ng-hide="editorEnabled">
+      <span id="arttitle"> &#9658; {{article.title}} </span> </br></br>
+      <span id="artbody"> {{article.body}} </span> </br>
+      <span id="artvisit">VISITED BY: <b>{{article.username}}</b> on {{article.date | date: 'MMMM yyyy'}} </span>
+
+    </br></br>
+
+    <div ng-show="articleCtrl.user === article.username">
+      <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
+    </div>
+
+  <br><br>
+  </div>
+
+  <div ng-show="editorEnabled">
+    <form ng-submit= "articleCtrl.editArticle(article)">
+
+      <textarea rows="6" cols="50" ng-model = "article.body"
+      placeholder="{{article.body}}"></textarea>
+
+      <br>
+      <input type="submit" class="linkbutton" value="Submit Edit"></form>
+      <br>
+
+    <form ng-submit="articleCtrl.deleteArticle(article)">
+      <input type="submit" class="linkbutton" value="Delete Article">
+    </form>
+
+    <br><br><br>
+
+    <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
+
+  </div>
+
+  <br><br>
+
+  <span id="artvisit"> COMMENTS: </span>
+  <br>
+
+  <span ng-repeat = "comment in article.comments">
+    <span id="commentdisplay">{{comment.body}} by <b>{{comment.username}}</b></span><br><br></span><br>
+
+    <button class="linkbutton" ng-click="commenter=true">Add a Comment</button>
+
+    <br><br>
+
+    <div ng-show="commenter">
+      <div ng-controller="CommentsController as commentCtrl">
+
+        <form ng-submit="commentCtrl.createComment()">
+          <textarea rows="6" cols="50" ng-model="commentCtrl.newCommentBody"></textarea>
+
+          <br>
+          <input type="submit" class="linkbutton" value="Submit"/>
+        </form>
+      </div>
+
+      <button class="linkbutton" ng-click="commenter=false">Cancel</button>
+    </div>
+
+    <hr>
+    <br>
+
+  </div>
+</div>
+
+</main>

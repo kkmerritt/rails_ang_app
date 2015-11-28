@@ -1,0 +1,55 @@
+<%= stylesheet_link_tag 'welcome', media: 'all', 'data-turbolinks-track' => true %>
+<% if current_user %>
+<% redirect_local %>
+<%end%>
+
+  <header>
+    <h1> NOPRO SPORTS </h1>
+  </header>
+
+  <hr>
+  <br><br>
+
+  <div class="form-container">
+        <br>
+    <form  action="<%= session_path %>" autocomplete="on" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+
+      <label for="username" class="form-label"><h5>EMAIL</h5> </label>
+      <input id="username" name="user[email]" required="required" type="email"/>
+
+      <label for="password" class="button"> <h5>PASSWORD </h5></label>
+      <input id="password" name="user[password]" required="required" type="password" />
+      <input type="submit" value="LOG IN" />
+    </form>
+
+    <br>
+
+    <label class="newuser" id="signupbutton">NEW USER</label>
+
+    <div id="signup-form" class="hidden">
+      <form  action="<%= users_path %>" autocomplete="on" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+        <br>
+        <hr>
+        <br>
+        <label for="usernamesignup" class="form-label"><h5>NAME</h5></label>
+        <input id="usernamesignup" name="user[name]" required="required" type="text" />
+
+        <label for="emailsignup" class="form-label"> <h5>EMAIL</h5></label>
+        <input id="emailsignup" name="user[email]" required="required" type="email"/>
+
+        <label for="passwordsignup" class="form-label"><h5>PASSWORD</h5> </label>
+        <input id="passwordsignup" name="user[password]" required="required" type="password"/>
+
+        <input id="signupbutton" type="submit" value="SIGN UP"/>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+$('#signupbutton').click(function (event) {$('#signup-form').toggleClass('hidden')})
+
+</script>

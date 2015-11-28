@@ -1,0 +1,26 @@
+<main>
+  <div class='container'>
+    <div id='spacer'></div>
+
+
+    <hr>
+    <br><br>
+
+    <form class="articles" ng-submit = "articleCtrl.createArticle()">
+
+      <textarea id='textarea' ng-model = "articleCtrl.newArticle.title"
+      placeholder="Enter a title"/></textarea>
+      <br><br>
+      <textarea id='textarea' ng-model = "articleCtrl.newArticle.body"
+      placeholder="Enter a content"/></textarea>
+      <br>
+      <input id="expiry" name="expiry" type="month" ng-model = "articleCtrl.newArticle.date">
+      <br><br>
+      <input class="linkbutton" type = "submit" />
+    </form>
+
+    <div id='spacer'></div><br>
+    <div id='spacer'></div><br>
+
+  </div>
+</main>
