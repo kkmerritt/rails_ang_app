@@ -1,54 +1,52 @@
 <%= stylesheet_link_tag 'welcome', media: 'all', 'data-turbolinks-track' => true %>
 <% if current_user %>
-<% redirect_local %>
-<%end%>
-
-  <header>
-    <h1 class="container"> ARTICLErrrrr </h1>
-    <h3> An Angular / Rails Article App </h3>
+  <% redirect_local %>
+  <%end%>
+  <div class="container"
+  <header >
+    <h1 > ARTICLErrrrr </h1>
+    <h5> An Angular / Rails Article App  </h5>
+    <hr>
   </header>
-
-  <hr>
-  <br><br>
+</div>
+<br>
 
 <div class="container">
 
+  <br>
+  <form  action="<%= session_path %>" autocomplete="on" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
 
+    <label for="username" class="form-label"><h5>EMAIL</h5> </label>
+    <input id="username" name="user[email]" required="required" type="email"/>
 
-        <br>
-    <form  action="<%= session_path %>" autocomplete="on" method="post">
+    <label for="password" > <h5>PASSWORD </h5></label>
+    <input id="password" name="user[password]" required="required" type="password" />
+
+    <input type="submit" value="LOG IN" />
+  </form>
+
+  <br>
+
+  <label class="button" id="signupbutton">NEW USER</label>
+
+  <div id="signup-form" class="hidden">
+    <br><br>
+    <hr>
+    <form  action="<%= users_path %>" autocomplete="on" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
 
-      <label for="username" class="form-label"><h5>EMAIL</h5> </label>
-      <input id="username" name="user[email]" required="required" type="email"/>
+      <label for="usernamesignup" class="form-label"><h5>NAME</h5></label>
+      <input id="usernamesignup" name="user[name]" required="required" type="text" />
 
-      <label for="password" > <h5>PASSWORD </h5></label>
-      <input id="password" name="user[password]" required="required" type="password" />
+      <label for="emailsignup" class="form-label"> <h5>EMAIL</h5></label>
+      <input id="emailsignup" name="user[email]" required="required" type="email"/>
 
-      <input type="submit" value="LOG IN" />
+      <label for="passwordsignup" class="form-label"><h5>PASSWORD</h5> </label>
+      <input id="passwordsignup" name="user[password]" required="required" type="password"/>
+      <br>
+      <input id="signupbutton" type="submit" value="SIGN UP"/>
     </form>
-
-    <br>
-
-    <label class="button" id="signupbutton">NEW USER</label>
-
-    <div id="signup-form" class="hidden">
-      <br><br>
-      <hr>
-      <form  action="<%= users_path %>" autocomplete="on" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-
-        <label for="usernamesignup" class="form-label"><h5>NAME</h5></label>
-        <input id="usernamesignup" name="user[name]" required="required" type="text" />
-
-        <label for="emailsignup" class="form-label"> <h5>EMAIL</h5></label>
-        <input id="emailsignup" name="user[email]" required="required" type="email"/>
-
-        <label for="passwordsignup" class="form-label"><h5>PASSWORD</h5> </label>
-        <input id="passwordsignup" name="user[password]" required="required" type="password"/>
-<br>
-        <input id="signupbutton" type="submit" value="SIGN UP"/>
-      </form>
 
   </div>
 </div>
