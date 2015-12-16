@@ -1,28 +1,24 @@
 <main ng-controller="ArticlesController as articleCtrl">
 
-  <div id='spacer'></div>
-
   <div class='container'>
 
-  <hr>
   <br>
-
+<br><br><br><br>
   <p>{{ count }}</p>
-    <label> search:  <input type="text" ng-model="search" /></label>
-
+    <label> search articles: <br> <input type="text" ng-model="search" /></label>
+    <br>
+<hr>
   <div class="articles" ng-repeat = "article in articleCtrl.articles | filter: search | orderBy: 'date' ">
     <div ng-hide="editorEnabled">
-      <span id="arttitle"> &#9658; {{article.title}} </span> </br></br>
+      <span id="arttitle"><h4> {{article.title}} </h4> </span> </br></br>
       <span id="artbody"> {{article.body}} </span> </br>
-      <span id="artvisit">VISITED BY: <b>{{article.username}}</b> on {{article.date | date: 'MMMM yyyy'}} </span>
+      <span id="artvisit">AUTHOR: <b>{{article.username}}</b> on {{article.date | date: 'MMMM yyyy'}} </span>
 
     </br></br>
 
     <div ng-show="articleCtrl.user === article.username">
-      <a href="#" class='linkbutton' ng-click="editorEnabled=!editorEnabled">Edit</a>
+      <button class="linkbutton"  ng-click="editorEnabled=!editorEnabled">EDIT</a>
     </div>
-
-  <br><br>
   </div>
 
   <div ng-show="editorEnabled">
@@ -41,7 +37,7 @@
 
     <br><br><br>
 
-    <a href="#" class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
+    <button class="linkbutton" ng-click="editorEnabled=!editorEnabled">Cancel</a>
 
   </div>
 

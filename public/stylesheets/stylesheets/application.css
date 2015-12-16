@@ -1,0 +1,87 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap
+ */
+
+ html {
+       overflow-y: scroll;
+}
+
+.well  {
+  position: fixed;
+    padding: 0px;
+    bottom: -5px;
+    left: 0%;
+    right: 0%;
+  border-color: #928C84;
+  padding-top: 1%;
+  border-radius: 0px;
+}
+
+#resetbtnonmodal {
+  margin-left: 0px;
+}
+
+.header-logo {
+}
+
+.navbar-brand > img {
+  height:4.3rem;
+}
+
+.jumbotron {
+  box-shadow: 2px 2px 15px black;
+}
+footer {
+display: flex;
+justify-content: space-around;
+margin-bottom: 8px;
+}
+
+.footer-icons {
+  -webkit-filter: grayscale(100%);
+  margin: auto;
+  width: 3rem;
+  height: 3rem;
+  opacity: 1;
+  background-color: rgb(249, 249, 246);
+}
+
+.footer-icons:hover {
+  -webkit-filter: none;
+  transition: all 1s;
+}
+td, tr {
+  max-width: 1rem;
+  max-height: .1rem;
+}
+table {
+  padding: 0px;
+}
+.form-control {
+  max-width: 35rem;
+}
+
+fieldset {
+  padding: 1rem;
+  border: 1px solid #e5e5e5;
+}
+.jumbotron {
+  width: 85%;
+  padding: 1%;
+}
+#flashmessage {
+  margin-top: 2rem;
+}

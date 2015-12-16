@@ -8,11 +8,11 @@
 
     <form class="articles" ng-submit = "articleCtrl.createArticle()">
 
-      <textarea id='textarea' ng-model = "articleCtrl.newArticle.title"
-      placeholder="Enter a title"/></textarea>
+      <input type="text" id='title' ng-model = "articleCtrl.newArticle.title"
+      placeholder="Enter article title"/></textarea>
       <br><br>
       <textarea id='textarea' ng-model = "articleCtrl.newArticle.body"
-      placeholder="Enter a content"/></textarea>
+      placeholder="Enter article content"/></textarea>
       <br>
       <input id="expiry" name="expiry" type="month" ng-model = "articleCtrl.newArticle.date">
       <br><br>
