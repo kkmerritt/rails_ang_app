@@ -1,3 +1,7 @@
+html {
+      overflow-y: scroll;
+}
+
 #textarea {
   width: 75%;
   height: 10rem;
@@ -18,4 +22,17 @@
   border-width: thin;
   border-color: gray;
   transition: all 2.5s ease;
+}
+#flashmessage {
+  border-style: solid;
+  border-width: thin;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: .5%;
+  padding-bottom: .5%;
+  border-color: gray;
+  margin-top: 15rem;
+  position: fixed;
+    color: green;
+margin-left: 40%;
 }
